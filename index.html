@@ -3,9 +3,9 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
-    <script src="lib/underscore-min.js"></script>
   </head>
   <body>
+    
     <script>
 
       $(document).ready(function(){
@@ -20,21 +20,31 @@
           var index = streams.home.length - 1;
           while(index >= 0){
             var tweet = streams.home[index];
-            var $tweet = $('<div></div>');
-            $tweet.html('<a href="#">'+ '@' + tweet.user + '</a>' + ': ' + tweet.message +': ' + tweet.created_at);
+            var $tweet = $('<div class="tweet"></div>');
+            $tweet.html('<a href="#" class="user">'+ '@' + tweet.user + '</a>' + ': ' + tweet.message +': ' + tweet.created_at);
             if(displayedTweets.indexOf(tweet.message) === -1) {
               $tweet.appendTo($body);
-            }
+            } 
             index -= 1;
             displayedTweets.push(tweet.message);
           }
         }
 
-         //button for displaying new tweets
-         var $button = $('<div><button class="new">Load Tweets</button></div>');
+
+         //button and handler for displaying new tweets
+         var $button = $('<div class="button"><button class="new">Load Tweets</button></div>');
          $button.appendTo($body);
          $('button').on('click',printTweets);
-       
+
+         //link handler for filtering the display of only the user is clicked
+         //this isn't working right now because it isn't inside the print tweets function. 
+         //so I need to move it in the printTweets function OR find another way to use an event
+         //handler on a node inside a function
+         $('.tweet').on('click','.user',function(){
+            console.log("test");
+            $(this).css('font-weight','bold');
+         });
+        clickTest();
         //first call to load the tweets.
         printTweets();
       });
