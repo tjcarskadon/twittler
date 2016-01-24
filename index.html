@@ -10,18 +10,38 @@
       $(document).ready(function(){
         var $body = $('body');
         $body.html('');
-
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
+        //variable for storing the index of the last tweet
+        var displayedTweets = 0;
+        var alreadyCalled = false;
+        function printTweets(numTweets) { 
+          var streamLength = streams.home.length;
+          var index = numTweets > 0? (streamLength - 1) - numTweets: streamLength - 1;
+          while(index >= 0){
+            var tweet = streams.home[index];
+            var $tweet = $('<div></div>');
+            $tweet.text(index +':' + '@' + tweet.user + ': ' + tweet.message +': ' + tweet.created_at);
+            $tweet.appendTo($body);
+            index -= 1;
+            displayedTweets++;
+          }
         }
+       var $button = $('<div><button class="new">Load Tweets</button></div>');
+        $button.appendTo($body);
+        $('button').on('click',function(){
+          console.log('number of tweets = ' + displayedTweets);
+          // console.log(streams);
+          printTweets(displayedTweets);
+        });
+        //first call to load the tweets.
+        printTweets();
+        console.log('number of tweets = ' + displayedTweets);
+        //create an html button that when clicked will display new tweets
+        //first I need to review how to create a button in HTML
+        //
+        
 
       });
-
     </script>
+    
   </body>
 </html>
