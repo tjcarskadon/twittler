@@ -11,6 +11,7 @@
       $(document).ready(function(){
         var $body = $('body');
         $body.html('');
+        
         //create an array that holds all the displayed tweets
         var displayedTweets = [];
 
@@ -20,7 +21,7 @@
           while(index >= 0){
             var tweet = streams.home[index];
             var $tweet = $('<div></div>');
-            $tweet.text(index +':' + '@' + tweet.user + ': ' + tweet.message +': ' + tweet.created_at);
+            $tweet.html('<a href="#">'+ '@' + tweet.user + '</a>' + ': ' + tweet.message +': ' + tweet.created_at);
             if(displayedTweets.indexOf(tweet.message) === -1) {
               $tweet.appendTo($body);
             }
