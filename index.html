@@ -3,6 +3,7 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <script src="lib/underscore-min.js"></script>
   </head>
   <body>
     
@@ -14,6 +15,7 @@
         
         //create an array that holds all the displayed tweets
         var displayedTweets = [];
+        var userId = [];
 
         //function to print tweets to the window
         function printTweets() { 
@@ -21,13 +23,26 @@
           while(index >= 0){
             var tweet = streams.home[index];
             var $tweet = $('<div class="tweet"></div>');
-            $tweet.html('<a href="#" class="user">'+ '@' + tweet.user + '</a>' + ': ' + tweet.message +': ' + tweet.created_at);
+            userId.push(tweet.user);
+            $tweet.html('<a href="#" id="'+ tweet.user +'" class="user">'+ '@' + tweet.user + '</a>' + ': ' + tweet.message +': ' + tweet.created_at);
             if(displayedTweets.indexOf(tweet.message) === -1) {
               $tweet.appendTo($body);
             } 
             index -= 1;
             displayedTweets.push(tweet.message);
           }
+
+          //event handler for user filtering.
+          $('.tweet').on('click','.user',function(){
+            var clickedUser=$(this).attr('id');
+            
+           
+            });
+              
+            //since this seem to be only selecting the first version and only using the last tweet.user name in the I think i need to create my own verson of .filter() and 
+            //loop thru some kind of array here to make sure that I am touching all versions 
+            //of the clicked user name.
+         });
         }
 
 
@@ -39,12 +54,9 @@
          //link handler for filtering the display of only the user is clicked
          //this isn't working right now because it isn't inside the print tweets function. 
          //so I need to move it in the printTweets function OR find another way to use an event
-         //handler on a node inside a function
-         $('.tweet').on('click','.user',function(){
-            console.log("test");
-            $(this).css('font-weight','bold');
-         });
-        clickTest();
+         //handler on a node inside a function.  I should most likly put this in the printTweets function.  Then do any other functionality with utility functions.
+         //Thinking about it, it makes sense to put this inside the printTweets function, because I am going to want to remove the other tweets when the user clicks a handle
+      
         //first call to load the tweets.
         printTweets();
       });
