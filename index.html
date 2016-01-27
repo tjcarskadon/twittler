@@ -37,13 +37,21 @@
               userFilter = true;
               var c = $(this).closest("span").attr('class');
               $('span[class!='+c+']').hide(); 
-
+              $('.button').find('.loader').text('Reload All Tweets');
             });
         }
          var $button = $('<div class="button"><button class="loader">Load Tweets</button></div>');
          $button.appendTo($body);
          //button and handler for displaying new tweets
-         $('button').on('click',printTweets);
+         $('.button').on('click', '.loader',function(){
+           if(!userFilter){
+              printTweets();
+           } else {
+              $(this).text("Load Tweets");
+              displayedTweets=[];
+              printTweets();
+           }
+         });
       
         //first call to load the tweets.
         printTweets();
