@@ -4,6 +4,7 @@
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <script src="lib/underscore-min.js"></script>
+   <link href="css/first.css" rel="stylesheet">
   </head>
   <body>
     
@@ -13,10 +14,9 @@
         var $body = $('body');
         $body.html('');
         
-        //create an array that holds all the displayed tweets
         var displayedTweets = [];
         var userId = [];
-
+        var userFilter = false;
         //function to print tweets to the window
         function printTweets() { 
           var index = streams.home.length - 1;
@@ -24,7 +24,7 @@
             var tweet = streams.home[index];
             var $tweet = $('<div class="tweet"></div>');
             userId.push(tweet.user);
-            $tweet.html('<a href="#" id="'+ tweet.user +'" class="user">'+ '@' + tweet.user + '</a>' + ': ' + tweet.message +': ' + tweet.created_at);
+            $tweet.html('<span class="'+tweet.user+'"><a href="#">'+ '@' + tweet.user + "</a>" + ': ' + tweet.message +': ' + tweet.created_at + '</span>');
             if(displayedTweets.indexOf(tweet.message) === -1) {
               $tweet.appendTo($body);
             } 
@@ -33,29 +33,17 @@
           }
 
           //event handler for user filtering.
-          $('.tweet').on('click','.user',function(){
-            var clickedUser=$(this).attr('id');
-            
-           
+           $('a').click(function(e){
+              userFilter = true;
+              var c = $(this).closest("span").attr('class');
+              $('span[class!='+c+']').hide(); 
+
             });
-              
-            //since this seem to be only selecting the first version and only using the last tweet.user name in the I think i need to create my own verson of .filter() and 
-            //loop thru some kind of array here to make sure that I am touching all versions 
-            //of the clicked user name.
-         });
         }
-
-
-         //button and handler for displaying new tweets
-         var $button = $('<div class="button"><button class="new">Load Tweets</button></div>');
+         var $button = $('<div class="button"><button class="loader">Load Tweets</button></div>');
          $button.appendTo($body);
+         //button and handler for displaying new tweets
          $('button').on('click',printTweets);
-
-         //link handler for filtering the display of only the user is clicked
-         //this isn't working right now because it isn't inside the print tweets function. 
-         //so I need to move it in the printTweets function OR find another way to use an event
-         //handler on a node inside a function.  I should most likly put this in the printTweets function.  Then do any other functionality with utility functions.
-         //Thinking about it, it makes sense to put this inside the printTweets function, because I am going to want to remove the other tweets when the user clicks a handle
       
         //first call to load the tweets.
         printTweets();
