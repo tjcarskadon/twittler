@@ -1,0 +1,11 @@
+/* Tweet styles */
+.tweet{
+	border-top: 1px solid;
+	padding: 10px;
+}s
+a {
+	text-decoration: none;
+}
+.hidden{
+	display: none;
+}
