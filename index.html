@@ -5,18 +5,33 @@
     <script src="data_generator.js"></script>
     <script src="lib/underscore-min.js"></script>
    <link href="css/first.css" rel="stylesheet">
+   <link href="css/simple-sidebar.css" rel="stylesheet">
   </head>
   <body>
-    
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+        </ul>
+        <!-- /sidebar-nav ul -->
+      </div>
+      <!-- /sidebar-wrapper  -->
+      <div id="page-content-wrapper">
+        <div class="container-fluid">
+        </div>
+        <!-- /contaier-fluid -->
+      </div>
+      <!-- /page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
     <script>
 
       $(document).ready(function(){
         var $body = $('body');
-        $body.html('');
-        
         var displayedTweets = [];
         var userId = [];
         var userFilter = false;
+
         //function to print tweets to the window
         function printTweets() { 
           var index = streams.home.length - 1;
@@ -26,7 +41,7 @@
             userId.push(tweet.user);
             $tweet.html('<span class="'+tweet.user+'"><a href="#">'+ '@' + tweet.user + "</a>" + ': ' + tweet.message +': ' + tweet.created_at + '</span>');
             if(displayedTweets.indexOf(tweet.message) === -1) {
-              $tweet.appendTo($body);
+              $tweet.appendTo('.container-fluid');
             } 
             index -= 1;
             displayedTweets.push(tweet.message);
@@ -40,8 +55,8 @@
               $('.button').find('.loader').text('Reload All Tweets');
             });
         }
-         var $button = $('<div class="button"><button class="loader">Load Tweets</button></div>');
-         $button.appendTo($body);
+         var $button = $('<li class="button"><button class="loader">Load Tweets</button></li>');
+         $button.appendTo('.sidebar-nav');
          //button and handler for displaying new tweets
          $('.button').on('click', '.loader',function(){
            if(!userFilter){
