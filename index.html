@@ -43,7 +43,7 @@
             var $tweet = $('<div class="tweet"></div>');
             // var tweetTime = time_ag
             userId.push(tweet.user);
-            $tweet.html('<span id="user" class="'+tweet.user+'"><span>'+ tweet.user + '</span><span><a href="#">'+ '@' + tweet.user + "</a></span><span>" + tweet.created_at + '</span><p>' + tweet.message +'</p></span>');
+            $tweet.html('<span id="user" class="'+tweet.user+'"><span class="'+tweet.user+'">'+ tweet.user + '</span><span class="'+tweet.user+'"><a href="#">'+ '@' + tweet.user + '</a></span><span class="'+tweet.user+'">' + tweet.created_at + '</span><p>' + tweet.message +'</p></span>');
             if(displayedTweets.indexOf(tweet.message) === -1) {
               $tweet.appendTo('.container-fluid');
             } 
@@ -54,8 +54,7 @@
           //event handler for user filtering.
            $('a').click(function(e){
               userFilter = true;
-              tweetUser = $(this).parent("span").attr('class');
-              console.log(tweetUser);
+              tweetUser = $(this).closest("span").attr('class');
               $('span[class!='+tweetUser+']').hide(); 
               $('.button').find('.loader').text('Reload All Tweets');
             });
@@ -68,7 +67,6 @@
               printTweets();
            } else {
               $(this).text("Load Tweets");
-              console.log(tweetUser);
               $('span[class!='+tweetUser+']').show();
               displayedTweets=[];
               printTweets();
