@@ -1,11 +1,41 @@
+/* general styles*/
+
+.image-cropper {
+    max-width: 100px;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+.rounded {
+    display: block;
+    margin: 10px auto;
+    height: 100px;
+    width: 100px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background:url("file:///Users/Tj/codeStuff/fulcrum/hrf1-twittler/img/btc.jpg") center no-repeat;
+    background-size:cover;
+}
+
 /* Tweet styles */
-.tweet{
+.tweet > #user {
 	border-top: 1px solid;
-	padding: 10px;
-}s
+	padding: 5px;
+    margin: 5px;
+    float: left;
+    width: 600px;
+
+}
+span + span {
+    margin-left: 20px;
+}
 a {
 	text-decoration: none;
 }
 .hidden{
 	display: none;
+    border-top: 0; 
 }

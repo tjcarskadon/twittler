@@ -4,7 +4,8 @@
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <script src="lib/underscore-min.js"></script>
-   <link href="css/first.css" rel="stylesheet">
+    <script type="tools.js"></script>
+   <link href="css/tweets.css" rel="stylesheet">
    <link href="css/simple-sidebar.css" rel="stylesheet">
   </head>
   <body>
@@ -12,6 +13,7 @@
       <!-- Sidebar -->
       <div id="sidebar-wrapper">
         <ul class="sidebar-nav">
+          <li class="rounded"></li>
         </ul>
         <!-- /sidebar-nav ul -->
       </div>
@@ -31,6 +33,7 @@
         var displayedTweets = [];
         var userId = [];
         var userFilter = false;
+        var tweetUser='';
 
         //function to print tweets to the window
         function printTweets() { 
@@ -38,20 +41,22 @@
           while(index >= 0){
             var tweet = streams.home[index];
             var $tweet = $('<div class="tweet"></div>');
+            // var tweetTime = time_ag
             userId.push(tweet.user);
-            $tweet.html('<span class="'+tweet.user+'"><a href="#">'+ '@' + tweet.user + "</a>" + ': ' + tweet.message +': ' + tweet.created_at + '</span>');
+            $tweet.html('<span id="user" class="'+tweet.user+'"><span>'+ tweet.user + '</span><span><a href="#">'+ '@' + tweet.user + "</a></span><span>" + tweet.created_at + '</span><p>' + tweet.message +'</p></span>');
             if(displayedTweets.indexOf(tweet.message) === -1) {
               $tweet.appendTo('.container-fluid');
             } 
             index -= 1;
             displayedTweets.push(tweet.message);
           }
-
+          
           //event handler for user filtering.
            $('a').click(function(e){
               userFilter = true;
-              var c = $(this).closest("span").attr('class');
-              $('span[class!='+c+']').hide(); 
+              tweetUser = $(this).parent("span").attr('class');
+              console.log(tweetUser);
+              $('span[class!='+tweetUser+']').hide(); 
               $('.button').find('.loader').text('Reload All Tweets');
             });
         }
@@ -63,6 +68,8 @@
               printTweets();
            } else {
               $(this).text("Load Tweets");
+              console.log(tweetUser);
+              $('span[class!='+tweetUser+']').show();
               displayedTweets=[];
               printTweets();
            }
