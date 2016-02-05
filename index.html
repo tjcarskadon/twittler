@@ -4,7 +4,7 @@
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <script src="lib/underscore-min.js"></script>
-    <script type="tools.js"></script>
+    <script src="lib/tools.js"></script>
    <link href="css/tweets.css" rel="stylesheet">
    <link href="css/simple-sidebar.css" rel="stylesheet">
   </head>
@@ -41,14 +41,21 @@
           while(index >= 0){
             var tweet = streams.home[index];
             var $tweet = $('<div class="tweet"></div>');
-            // var tweetTime = time_ag
+            var tweetTime = time_ago(tweet.created_at);
             userId.push(tweet.user);
-            $tweet.html('<span id="user" class="'+tweet.user+'"><span class="'+tweet.user+'">'+ tweet.user + '</span><span class="'+tweet.user+'"><a href="#">'+ '@' + tweet.user + '</a></span><span class="'+tweet.user+'">' + tweet.created_at + '</span><p>' + tweet.message +'</p></span>');
+            $tweet.html('<span id="user" class="'+tweet.user+'"><span class="'+tweet.user+'">'+ tweet.user + '</span><span class="'+tweet.user+'"><a href="#">'+ '@' + tweet.user + '</a></span><span class="'+tweet.user+' time">' + tweetTime + '</span><p>' + tweet.message +'</p></span>');
             if(displayedTweets.indexOf(tweet.message) === -1) {
-              $tweet.appendTo('.container-fluid');
-            } 
+              $tweet.prependTo('.container-fluid');
+            } else {
+              var timeIndex = displayedTweets.indexOf(tweet.created_at);
+              var updatedTime = time_ago(displayedTweets[timeIndex]);
+              console.log(displayedTweets[timeIndex]);
+              $('span').hasClass(tweet.user + ' time');
+                $(tweet.user+'.time').text(updatedTime);
+
+            }
             index -= 1;
-            displayedTweets.push(tweet.message);
+            displayedTweets.push(tweet.message,tweet.created_at);
           }
           
           //event handler for user filtering.
@@ -56,6 +63,7 @@
               userFilter = true;
               tweetUser = $(this).closest("span").attr('class');
               $('span[class!='+tweetUser+']').hide(); 
+              $('.time').show(); 
               $('.button').find('.loader').text('Reload All Tweets');
             });
         }
