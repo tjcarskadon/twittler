@@ -26,8 +26,8 @@ var time_formats = [
 var seconds = (+new Date() - time) / 1000,
     token = 'ago', list_choice = 1;
 
-if (seconds == 0) {
-    return 'Just now'
+if (seconds === 0) {
+    return 'Just now';
 }
 if (seconds < 0) {
     seconds = Math.abs(seconds);
@@ -36,3 +36,11 @@ if (seconds < 0) {
 }
 var i = 0, format;
 while (format = time_formats[i++])
+    if (seconds < format[0]) {
+        if (typeof format[2] == 'string')
+            return format[list_choice];
+        else
+            return Math.floor(seconds / format[2]) + ' ' + format[1] + ' ' + token;
+    }
+return time;
+}

@@ -13,7 +13,7 @@
 - [x] create a method for going back to all tweets
 
 ###Design tasks:
-- [ ] add side bar
+- [x] add side bar
 - [ ] set boarder around tweets
 - [ ] format tweets Name, handle, time, and then on the line below the tweet content
 - [ ] Create heading
@@ -21,6 +21,9 @@
 - [ ] add sidebar slider
 - [ ] float over window with scrolling
 
+
+###Next Action:
+ - Fix tweet reloading issue, need to remove the divs from the dom
 
 
 

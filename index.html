@@ -33,17 +33,18 @@
       </div>
       <!-- /sidebar-wrapper  -->
       <div class="main-content">
-        <div class="stream-container">
-          <div class="stream-item new-tweets">
+        <div class="stream-container"> 
+          <div class="stream-item">
             place holder for new tweet loader
           </div>
-          <ol class="stream-items">
-
-          </ol>
+          <div class="stream">
+            <ol class="stream-items"></ol>
+          </div>
+          <!-- /stream -->
         </div>
-        <!-- /contaier-fluid -->
+        <!-- /stream-container -->
       </div>
-      <!-- /page-content-wrapper -->
+      <!-- /main-content -->
     </div>
     <!-- /#wrapper -->
     <script>
@@ -63,9 +64,9 @@
             var $tweet = $('<li class="stream-item"></li>');
             var tweetTime = time_ago(tweet.created_at);
             userId.push(tweet.user);
-            $tweet.html('<span id="user" class= "'+tweet.user+'"><span class=fullname "'+tweet.user+'">'+ tweet.user + '</span> | <span class= handle "'+tweet.user+'"><a href="#">'+ '@' + tweet.user + '</a></span> | <span class=time "'+tweet.user+'">' + tweetTime + '</span><p>' + tweet.message +'</p></span>');
+            $tweet.html('<span id="user" class= "'+tweet.user+'"><span class="fullname '+tweet.user+'">'+ tweet.user + '</span> | <span class= "handle '+tweet.user+'"><a href="#">'+ '@' + tweet.user + '</a></span> | <span class="time '+tweet.user+'"">' + tweetTime + '</span><p>' + tweet.message +'</p></span>');
             if(displayedTweets.indexOf(tweet.message) === -1) {
-              $tweet.prependTo('.stream-container');
+              $tweet.appendTo('.stream-items');
             } else {
               var timeIndex = displayedTweets.indexOf(tweet.created_at);
               var updatedTime = time_ago(displayedTweets[timeIndex]);
@@ -79,7 +80,7 @@
           }
           
           //event handler for user filtering.
-           $('a').click(function(e){
+           $('a').on(function(e){
               userFilter = true;
               tweetUser = $(this).closest("span").attr('class');
               $('span[class!='+tweetUser+']').hide(); 

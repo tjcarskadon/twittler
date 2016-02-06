@@ -15,12 +15,12 @@ div {
 
 ol {
     display: block;
-    list-style-type: decimal;
-    -webkit-margin-before: 1em;
-    -webkit-margin-after: 1em;
+    list-style-type: none;
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-    -webkit-padding-start: 40px;
+    -webkit-padding-start: 0px;
 }
 
 p {
@@ -77,34 +77,34 @@ p {
 
 .main-content {
     float: left;
+    left: 25px;
     width: 500px;
     margin-top: 25px;
-    margin-left: 20px;
+    margin-left: 0px;
     padding: 0;
     position: relative;
 }
 
-.stream-container {
+.stream, .stream-container, .stream-items {
+
     position: relative;
     list-style: none;
 }
 
+ol .stream-items{
+    padding: 0;
+
+}
+
 .stream-item {
+    border-top: 1px solid #e1e8ed;
     padding-left: 0px;
     background: #fff;
     border-left: 1px solid #e1e8ed;
     border-right: 1px solid #e1e8ed;
     border-radius: 5px;
-}
-
-.stream-item > #user {
-    z-index: 1000;
-    border-top: 1px solid #e1e8ed;
+    width: 488;
     padding: 5px;
-    margin: 0px;
-    float: left;
-    width: 488px;
-
 }
 
 .fullname {
