@@ -35,7 +35,7 @@
       <div class="main-content">
         <div class="stream-container"> 
           <div class="stream-item">
-            place holder for new tweet loader
+            <a href="#" class="loader">Load Tweets</a>
           </div>
           <div class="stream">
             <ol class="stream-items"></ol>
@@ -64,7 +64,7 @@
             var $tweet = $('<li class="stream-item"></li>');
             var tweetTime = time_ago(tweet.created_at);
             userId.push(tweet.user);
-            $tweet.html('<span id="user" class= "'+tweet.user+'"><span class="fullname '+tweet.user+'">'+ tweet.user + '</span> | <span class= "handle '+tweet.user+'"><a href="#">'+ '@' + tweet.user + '</a></span> | <span class="time '+tweet.user+'"">' + tweetTime + '</span><p>' + tweet.message +'</p></span>');
+            $tweet.html('<span id="user" class="'+tweet.user+'"><span class="fullname '+tweet.user+'">'+ tweet.user + '</span> | <span class= "handle '+tweet.user+'"><a href="#" class="uFilter">'+ '@' + tweet.user + '</a></span> | <span class="time '+tweet.user+'"">' + tweetTime + '</span><p>' + tweet.message +'</p></span>');
             if(displayedTweets.indexOf(tweet.message) === -1) {
               $tweet.appendTo('.stream-items');
             } else {
@@ -80,9 +80,11 @@
           }
           
           //event handler for user filtering.
-           $('a').on(function(e){
+           $('.uFilter').click(function(){
               userFilter = true;
-              tweetUser = $(this).closest("span").attr('class');
+              var getUser = $(this).closest("span").attr('class');
+              tweetUser = getUser.split(' ').pop();
+              console.log(tweetUser);
               $('span[class!='+tweetUser+']').hide(); 
               $('.time').show(); 
               $('.button').find('.loader').text('Reload All Tweets');
@@ -91,7 +93,7 @@
          var $button = $('<button class="loader">Load Tweets</button>');
          $button.appendTo('.user-content');
          //button and handler for displaying new tweets
-         $('.button').on('click', '.loader',function(){
+         $('a').on('click', '.loader',function(){
            if(!userFilter){
               printTweets();
            } else {
