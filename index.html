@@ -32,8 +32,14 @@
         <!-- /user-card -->
       </div>
       <!-- /sidebar-wrapper  -->
-      <div id="page-content-wrapper">
-        <div class="container-fluid">
+      <div class="main-content">
+        <div class="stream-container">
+          <div class="stream-item new-tweets">
+            place holder for new tweet loader
+          </div>
+          <ol class="stream-items">
+
+          </ol>
         </div>
         <!-- /contaier-fluid -->
       </div>
@@ -54,12 +60,12 @@
           var index = streams.home.length - 1;
           while(index >= 0){
             var tweet = streams.home[index];
-            var $tweet = $('<div class="tweet"></div>');
+            var $tweet = $('<li class="stream-item"></li>');
             var tweetTime = time_ago(tweet.created_at);
             userId.push(tweet.user);
-            $tweet.html('<span id="user" class="'+tweet.user+'"><span class="'+tweet.user+'">'+ tweet.user + '</span><span class="'+tweet.user+'"><a href="#">'+ '@' + tweet.user + '</a></span><span class="'+tweet.user+' time">' + tweetTime + '</span><p>' + tweet.message +'</p></span>');
+            $tweet.html('<span id="user" class= "'+tweet.user+'"><span class=fullname "'+tweet.user+'">'+ tweet.user + '</span> | <span class= handle "'+tweet.user+'"><a href="#">'+ '@' + tweet.user + '</a></span> | <span class=time "'+tweet.user+'">' + tweetTime + '</span><p>' + tweet.message +'</p></span>');
             if(displayedTweets.indexOf(tweet.message) === -1) {
-              $tweet.prependTo('.container-fluid');
+              $tweet.prependTo('.stream-container');
             } else {
               var timeIndex = displayedTweets.indexOf(tweet.created_at);
               var updatedTime = time_ago(displayedTweets[timeIndex]);
@@ -81,8 +87,8 @@
               $('.button').find('.loader').text('Reload All Tweets');
             });
         }
-         var $button = $('<li class="button"><button class="loader">Load Tweets</button></li>');
-         $button.prependTo('.container-fluid');
+         var $button = $('<button class="loader">Load Tweets</button>');
+         $button.appendTo('.user-content');
          //button and handler for displaying new tweets
          $('.button').on('click', '.loader',function(){
            if(!userFilter){
