@@ -12,10 +12,24 @@
     <div id="wrapper">
       <!-- Sidebar -->
       <div id="sidebar-wrapper">
-        <ul class="sidebar-nav">
-          <li class="rounded"></li>
-        </ul>
-        <!-- /sidebar-nav ul -->
+        <div class="user-card">
+          <div class="user-top">
+          </div>
+          <!-- /user top -->
+          <div class="user-content">
+            <div class="avatar-container"> 
+              <img class="user-avatar" src="img/btc.jpg"></img>
+            </div>
+            <!-- /avatar-container -->
+            <div class="user-info">
+              <div class="user-name u-textTruncate">Bill The Cat</div>
+              <div class="user-handle">@billthecat</div>
+            </div>
+            <!-- /user-info -->
+           </div>
+            <!-- /user-content  -->
+        </div>
+        <!-- /user-card -->
       </div>
       <!-- /sidebar-wrapper  -->
       <div id="page-content-wrapper">
@@ -68,7 +82,7 @@
             });
         }
          var $button = $('<li class="button"><button class="loader">Load Tweets</button></li>');
-         $button.appendTo('.sidebar-nav');
+         $button.prependTo('.container-fluid');
          //button and handler for displaying new tweets
          $('.button').on('click', '.loader',function(){
            if(!userFilter){
