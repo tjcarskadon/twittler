@@ -34,8 +34,7 @@
       <!-- /sidebar-wrapper  -->
       <div class="main-content">
         <div class="stream-container"> 
-          <div class="stream-item">
-            <a href="#" class="loader">Load Tweets</a>
+          <div class="stream-item tweetLoader">
           </div>
           <div class="stream">
             <ol class="stream-items"></ol>
@@ -66,11 +65,10 @@
             userId.push(tweet.user);
             $tweet.html('<span id="user" class="'+tweet.user+'"><span class="fullname '+tweet.user+'">'+ tweet.user + '</span> | <span class= "handle '+tweet.user+'"><a href="#" class="uFilter">'+ '@' + tweet.user + '</a></span> | <span class="time '+tweet.user+'"">' + tweetTime + '</span><p>' + tweet.message +'</p></span>');
             if(displayedTweets.indexOf(tweet.message) === -1) {
-              $tweet.appendTo('.stream-items');
+              $tweet.prependTo('.stream-items');
             } else {
               var timeIndex = displayedTweets.indexOf(tweet.created_at);
               var updatedTime = time_ago(displayedTweets[timeIndex]);
-              console.log(displayedTweets[timeIndex]);
               $('span').hasClass(tweet.user + ' time');
                 $(tweet.user+'.time').text(updatedTime);
 
@@ -84,16 +82,17 @@
               userFilter = true;
               var getUser = $(this).closest("span").attr('class');
               tweetUser = getUser.split(' ').pop();
-              console.log(tweetUser);
               $('span[class!='+tweetUser+']').hide(); 
               $('.time').show(); 
               $('.button').find('.loader').text('Reload All Tweets');
             });
         }
-         var $button = $('<button class="loader">Load Tweets</button>');
-         $button.appendTo('.user-content');
+         // var $button = $('<button class="loader">Load Tweets</button>');
+         // $button.appendTo('.user-content');
          //button and handler for displaying new tweets
-         $('a').on('click', '.loader',function(){
+        var $loadLink = $('<a href="#" class="loader">Load Tweets</a>');
+        $loadLink.appendTo('.tweetLoader');
+         $('.loader').click(function(){
            if(!userFilter){
               printTweets();
            } else {
