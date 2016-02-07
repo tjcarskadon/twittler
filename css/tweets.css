@@ -27,6 +27,10 @@ p {
     margin: 7px 0 7px 5px;
 }
 
+a {
+    text-decoration: none;
+}
+
 .user-card {
     border: 1px solid #e1e8ed;
     background-color: #fff;
@@ -104,6 +108,10 @@ ol .stream-items{
     border-right: 1px solid #e1e8ed;
     width: 488;
     padding: 5px;
+}
+
+.tweet-loader {
+    text-align: center;
 }
 
 .fullname {
