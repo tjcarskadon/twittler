@@ -152,6 +152,11 @@ ol .stream-items{
     text-align: center;
 }
 
+.tweet-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 5px;
+}
 .fullname {
     margin-left: 5px;
     font-weight: bold;
