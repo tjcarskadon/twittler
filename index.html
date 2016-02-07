@@ -81,11 +81,10 @@
            $('.uFilter').click(function(){
               userFilter = true;
               var getUser = $(this).closest("li").attr('class');
-              console.log(getUser);
               tweetUser = getUser.split(' ').pop();
               $('li[class!= "stream-item '+tweetUser+'"]').remove(); 
               $('.time').show(); 
-              $('.button').find('.loader').text('Reload All Tweets');
+              $('.loader').text('Reload All Tweets');
             });
         }
          // var $button = $('<button class="loader">Load Tweets</button>');
@@ -98,6 +97,7 @@
               printTweets();
            } else {
               $(this).text("Load Tweets");
+              console.log(this);
               $('li[class = "stream-item '+tweetUser+'"]').remove();
               displayedTweets=[];
               printTweets();
