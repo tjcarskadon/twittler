@@ -4,7 +4,7 @@
 - [x] Create a button that displays new tweets
 - [ ] figure out how to display tweets when new onese are added to the array, might be able to use .trigger() on some kind of dealy.
 - [x] Display timestamps
-- [ ] integrate bootstrap template
+- [x] integrate bootstrap template
 - [x] Create filter for each user name
 
 ###Name filter tasks:
@@ -16,14 +16,22 @@
 - [x] add side bar
 - [ ] set boarder around tweets
 - [ ] format tweets Name, handle, time, and then on the line below the tweet content
-- [ ] Create heading
+- [x] Create heading
 - [ ] add buttons to side bar
 - [ ] add sidebar slider
-- [ ] float over window with scrolling
+- [x] float over window with scrolling
+- [ ] format heading
+- [ ] 
+
+
+###Open issues:
+- [ ] time not updating correctly
+- [ ]  
 
 
 ###Next Action:
- - Fix tweet reloading issue, need to remove the divs from the dom
+ - [ ] fix user filter because the new added class to spans is breaking the filter
+ - 
 
 
 

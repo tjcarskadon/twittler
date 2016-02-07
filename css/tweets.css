@@ -115,3 +115,6 @@ ol .stream-items{
     font-size: 13px;
     color: #8899a6;
 }
+.fullname, .handle, .time {
+    display: inline-block;
+}

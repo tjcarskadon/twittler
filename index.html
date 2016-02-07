@@ -60,10 +60,10 @@
           var index = streams.home.length - 1;
           while(index >= 0){
             var tweet = streams.home[index];
-            var $tweet = $('<li class="stream-item"></li>');
+            var $tweet = $('<li class="stream-item ' + tweet.user + '"></li>');
             var tweetTime = time_ago(tweet.created_at);
             userId.push(tweet.user);
-            $tweet.html('<span id="user" class="'+tweet.user+'"><span class="fullname '+tweet.user+'">'+ tweet.user + '</span> | <span class= "handle '+tweet.user+'"><a href="#" class="uFilter">'+ '@' + tweet.user + '</a></span> | <span class="time '+tweet.user+'"">' + tweetTime + '</span><p>' + tweet.message +'</p></span>');
+            $tweet.html('<span id="user" class="'+tweet.user+'"><div class="fullname '+tweet.user+'">'+ tweet.user + '</div> <div class= "handle '+tweet.user+'"> | <a href="#" class="uFilter">'+ '@' + tweet.user + '</a></div> <div class="time '+tweet.user+'""> | ' + tweetTime + '</div><p>' + tweet.message +'</p></span>');
             if(displayedTweets.indexOf(tweet.message) === -1) {
               $tweet.prependTo('.stream-items');
             } else {
@@ -80,9 +80,10 @@
           //event handler for user filtering.
            $('.uFilter').click(function(){
               userFilter = true;
-              var getUser = $(this).closest("span").attr('class');
+              var getUser = $(this).closest("li").attr('class');
+              console.log(getUser);
               tweetUser = getUser.split(' ').pop();
-              $('span[class!='+tweetUser+']').hide(); 
+              $('li[class!= "stream-item '+tweetUser+'"]').remove(); 
               $('.time').show(); 
               $('.button').find('.loader').text('Reload All Tweets');
             });
