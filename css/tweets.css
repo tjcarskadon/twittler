@@ -25,6 +25,11 @@ ol {
 
 p {
     margin: 7px 0 7px 5px;
+    display: inline;
+    border: 1px solid;
+
+
+
 }
 
 a {
@@ -50,7 +55,6 @@ a {
 .stat-list{
     list-style: none;
     display: table;
-    
     min-width: 100%;
     padding: 0;
 
@@ -142,6 +146,7 @@ ol .stream-items{
     border-right: 1px solid #e1e8ed;
     width: 488;
     padding: 5px;
+    vertical-align: top;
 }
 
 .stream-item:hover{
@@ -153,6 +158,7 @@ ol .stream-items{
 }
 
 .tweet-avatar {
+    border: 1px solid #e1e8ed;
     width: 48px;
     height: 48px;
     border-radius: 5px;
