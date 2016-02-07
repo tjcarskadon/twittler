@@ -24,7 +24,7 @@ ol {
 }
 
 p {
-    margin: 0;
+    margin: 7px 0 7px 5px;
 }
 
 .user-card {
@@ -107,6 +107,7 @@ ol .stream-items{
 }
 
 .fullname {
+    margin-left: 5px;
     font-weight: bold;
     color: #292f33;
 }
