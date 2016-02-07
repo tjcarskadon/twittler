@@ -43,6 +43,40 @@ a {
     height: 100px;
 }
 
+.user-stats {
+    margin-left: 10px;
+}
+
+.stat-list{
+    list-style: none;
+    display: table;
+    
+    min-width: 100%;
+    padding: 0;
+
+}
+
+.stat {
+    display: table-cell;
+    padding: 0;
+}
+
+.stat-label {
+    color: #8899a6;
+    font-size: 10px;
+    letter-spacing: .02em;
+    overflow: hidden;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    color: #0084B4;
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 3px;
+}
+
 .avatar-container {
     z-index: 1500;
     margin: -50px 10px 10px 10px;
@@ -108,6 +142,10 @@ ol .stream-items{
     border-right: 1px solid #e1e8ed;
     width: 488;
     padding: 5px;
+}
+
+.stream-item:hover{
+    background-color: #f5f8fa;
 }
 
 .tweet-loader {
