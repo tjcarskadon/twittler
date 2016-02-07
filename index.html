@@ -80,6 +80,7 @@
             var $tweet = $('<li class="stream-item ' + tweet.user + '"></li>');
             var tweetTime = time_ago(tweet.created_at);
             userId.push(tweet.user);
+            var tweetAvatar = getTweetImage(tweet.user);
             $tweet.html('<span id="user" class="'+tweet.user+'"><div class="fullname '+tweet.user+'">'+ tweet.user + '</div> <div class= "handle '+tweet.user+'"> | <a href="#" class="uFilter">'+ '@' + tweet.user + '</a></div> <div class="time '+tweet.user+'""> | ' + tweetTime + '</div><p>' + tweet.message +'</p></span>');
             if(displayedTweets.indexOf(tweet.message) === -1) {
               $tweet.prependTo('.stream-items');
@@ -97,9 +98,21 @@
               $('.loader').text('Reload All Tweets');
             });
         }
-         // var $button = $('<button class="loader">Load Tweets</button>');
-         // $button.appendTo('.user-content');
-         //button and handler for displaying new tweets
+
+        function getTweetImage (user) {
+
+          switch (user) {
+            case "shawndrost":
+              return '<img class="tweet-avatar" src="img/steve.jpeg">';
+            case "sharksforcheap":
+              return '<img class="tweet-avatar" src="img/opus2.jpeg">';
+            case "mracus":
+              return '<img class="tweet-avatar" src="img/ban2000.jpeg">';
+            case "douglascalhoun":
+              return '<img class="tweet-avatar" src="img/milo.jpeg">';
+          }
+        }
+
         var $loadLink = $('<a href="#" class="loader">Load Tweets</a>');
         $loadLink.appendTo('.tweet-loader');
          $('.loader').click(function(){
