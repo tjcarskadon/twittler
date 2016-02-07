@@ -26,6 +26,23 @@
               <div class="user-handle">@billthecat</div>
             </div>
             <!-- /user-info -->
+            <div class="user-stats"> 
+              <ul class="stat-list">
+                <li class="stat">
+                  <span class="stat-label">Tweets</span>
+                  <span class="stat-value">10</span>
+                </li>
+                 <li class="stat">
+                  <span class="stat-label">Following</span>
+                  <span class="stat-value">15</span>
+                </li>
+                 <li class="stat">
+                  <span class="stat-label">Followers</span>
+                  <span class="stat-value">1000</span>
+                </li>
+              </ul>
+            </div>
+            <!-- /user-stats -->
            </div>
             <!-- /user-content  -->
         </div>
@@ -34,7 +51,7 @@
       <!-- /sidebar-wrapper  -->
       <div class="main-content">
         <div class="stream-container"> 
-          <div class="stream-item tweetLoader">
+          <div class="stream-item tweet-loader">
           </div>
           <div class="stream">
             <ol class="stream-items"></ol>
@@ -84,7 +101,7 @@
          // $button.appendTo('.user-content');
          //button and handler for displaying new tweets
         var $loadLink = $('<a href="#" class="loader">Load Tweets</a>');
-        $loadLink.appendTo('.tweetLoader');
+        $loadLink.appendTo('.tweet-loader');
          $('.loader').click(function(){
            if(!userFilter){
               printTweets();
