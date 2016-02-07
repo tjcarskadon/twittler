@@ -98,7 +98,7 @@
               printTweets();
            } else {
               $(this).text("Load Tweets");
-              $('span[class!='+tweetUser+']').show();
+              $('li[class = "stream-item '+tweetUser+'"]').remove();
               displayedTweets=[];
               printTweets();
            }
