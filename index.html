@@ -16,7 +16,7 @@
             <h2 class="title">Twittler</h2>
             <div class="nav">
               <ul class="nav">
-                <li class="home"><a href="#" class="home-loader"><img src="img/homeIcon.png" class="nav-icon"></a></li>
+                <a href="#" class="home-loader"><img src="img/homeIcon.png" class="nav-icon"></a>
               </ul>
             </div>
             <div class="pull-right">
@@ -136,20 +136,22 @@
         var $loadLink = $('<a href="#" class="loader">Load Tweets</a>');
         $loadLink.appendTo('.tweet-loader');
          $('.loader').click(function(){
-           if(!userFilter){
+            $(this).text("Load Tweets");
+            loader();
+         });
+
+         $('.home-loader').click(loader);
+      
+         function loader(){
+          if(!userFilter){
               printTweets();
            } else {
               userFilter = false;
-              $(this).text("Load Tweets");
               $('li[class = "stream-item '+tweetUser+'"]').remove();
               displayedTweets=[];
               printTweets();
            }
-         });
-
-         $('.home-loader').click()
-      
-         function loader(){}
+         }
 
         //first call to load the tweets.
         printTweets();
