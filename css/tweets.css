@@ -26,10 +26,6 @@ ol {
 p {
     margin: 7px 0 7px 5px;
     display: inline;
-    border: 1px solid;
-
-
-
 }
 
 a {
@@ -138,6 +134,7 @@ ol .stream-items{
 
 }
 
+
 .stream-item {
     border-top: 1px solid #e1e8ed;
     padding-left: 0px;
@@ -158,13 +155,17 @@ ol .stream-items{
 }
 
 .tweet-avatar {
+    text-align: left;
+    position: relative;
+    top: 5px;
+    margin-left: 2px; 
     border: 1px solid #e1e8ed;
-    width: 48px;
-    height: 48px;
+    width: 50px;
+    height: 50px;
     border-radius: 5px;
 }
 .fullname {
-    margin-left: 5px;
+    margin-left: 10px;
     font-weight: bold;
     color: #292f33;
 }
@@ -174,5 +175,13 @@ ol .stream-items{
     color: #8899a6;
 }
 .fullname, .handle, .time {
+    position: relative;
+    top: -30px;
     display: inline-block;
+}
+
+.tweet-text {
+    position: relative;
+    left: 57px;
+    top: -25px;
 }
