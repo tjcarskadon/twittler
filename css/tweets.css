@@ -13,7 +13,7 @@ div {
     display: block;
 }
 
-ol {
+ol, ul {
     display: block;
     list-style-type: none;
     -webkit-margin-before: 0em;
@@ -32,16 +32,69 @@ a {
     text-decoration: none;
 }
 
+.top-bar {
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    position: fixed;
+    height: 46px;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    background: #fff;
+}
+
+.container {
+    position: relative;
+    width: auto;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid
+}
+
+.top-nav, .nav, .nav>li{
+    float:left;
+    height: 46px;
+}
+
+.nav-icon {
+    margin-top: 5px;
+    margin-left: 15px;
+    height: 30px;
+    width: 30px;
+}
+
+.pull-right {
+    display: inline-block;
+    float:right;
+    text-align: left;
+}
+
+.title {
+    color: #1da1f2;
+    font-size: 21px;
+    margin-top: 14px;
+    margin-left: 24px;
+    display: inline-block;
+    text-align: center;
+    background-position: -40px 0;
+}
+
 .user-card {
     border: 1px solid #e1e8ed;
     background-color: #fff;
     height: 200px;
+    position: relative;
+    top: 25px;
+    border-radius: 5px;
 }
 
 .user-top{
     background-color: #0083b6;
     border-bottom: 1px solid #e1e8ed;
     height: 100px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .user-stats {
@@ -115,6 +168,7 @@ a {
 
 .main-content {
     float: left;
+    top: 25px;
     left: 25px;
     width: 500px;
     margin-top: 25px;
@@ -129,11 +183,10 @@ a {
     list-style: none;
 }
 
+
 ol .stream-items{
     padding: 0;
-
 }
-
 
 .stream-item {
     border-top: 1px solid #e1e8ed;
@@ -146,12 +199,19 @@ ol .stream-items{
     vertical-align: top;
 }
 
+.stream-item:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 .stream-item:hover{
     background-color: #f5f8fa;
 }
 
 .tweet-loader {
     text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .tweet-avatar {
