@@ -50,10 +50,11 @@ button {
 
 .container {
     position: relative;
-    width: auto;
+    width: 1400px;
     margin: 0 auto;
     text-align: center;
-    border: 1px solid
+    max-width: 2500px;
+    min-width: 200px;
 }
 
 .top-nav, .nav, .nav>li{
@@ -76,17 +77,18 @@ button {
 
 .search-input {
     display: block;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
-    width: 100%;
+    width: 200px;
     height: 32px;
-    padding: 5px 27px 6px 12px;
+    margin-top: 5px;
+    padding: 7px 27px 6px 12px;
     font-size: 12px;
     line-height: 1;
     color: #292f33;
     background-color: #f5f8fa;
     border: 1px solid #e1e8ed;
     border-radius: 21px;
+    text-align: center;
 }
 
 .search-icon {
