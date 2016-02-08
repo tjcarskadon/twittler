@@ -16,7 +16,7 @@
             <h2 class="title">Twittler</h2>
             <div class="nav">
               <ul class="nav">
-                <li class="home"><a href="/" class=><img src="img/homeIcon.png" class="nav-icon"></a></li>
+                <li class="home"><a href="#" class="home-loader"><img src="img/homeIcon.png" class="nav-icon"></a></li>
               </ul>
             </div>
             <div class="pull-right">
@@ -146,7 +146,11 @@
               printTweets();
            }
          });
+
+         $('.home-loader').click()
       
+         function loader(){}
+
         //first call to load the tweets.
         printTweets();
       });
