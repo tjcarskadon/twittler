@@ -81,7 +81,7 @@
             var tweetTime = time_ago(tweet.created_at);
             userId.push(tweet.user);
             var tweetAvatar = getTweetImage(tweet.user);
-            $tweet.html(tweetAvatar +'<span id="user" class="'+tweet.user+'"><div class="fullname '+tweet.user+'">'+ tweet.user + '</div> <div class= "handle '+tweet.user+'"> | <a href="#" class="uFilter">'+ '@' + tweet.user + '</a></div> <div class="time '+tweet.user+'""> | ' + tweetTime + '</div><p>' + tweet.message +'</p></span>');
+            $tweet.html('<div class="content"> <div class="tweet-header">' +tweetAvatar +'<div class="fullname '+tweet.user+'">'+ tweet.user + '</div> <div class= "handle '+tweet.user+'"> | <a href="#" class="uFilter">'+ '@' + tweet.user + '</a></div> <div class="time '+tweet.user+'""> | ' + tweetTime + '</div></div><p class="tweet-text">' + tweet.message +'</p></div>');
             if(displayedTweets.indexOf(tweet.message) === -1) {
               $tweet.prependTo('.stream-items');
             } 
