@@ -26,7 +26,10 @@ var time_formats = [
 var seconds = (+new Date() - time) / 1000,
     token = 'ago', list_choice = 1;
 
+
+
 if (seconds === 0) {
+    console.log(seconds);
     return 'Just now';
 }
 if (seconds < 0) {
