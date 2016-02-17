@@ -195,7 +195,7 @@ button {
     float: left;
     top: 25px;
     left: 25px;
-    width: 500px;
+    width: 550px;
     margin-top: 25px;
     margin-left: 0px;
     padding: 0;
@@ -231,6 +231,10 @@ ol .stream-items{
 
 .stream-item:hover{
     background-color: #f5f8fa;
+}
+    
+.content {
+    
 }
 
 .tweet-loader {
@@ -269,4 +273,5 @@ ol .stream-items{
     position: relative;
     left: 57px;
     top: -25px;
+    
 }
