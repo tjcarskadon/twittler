@@ -104,7 +104,12 @@
             $tweet.html('<div class="content"> <div class="tweet-header">' +tweetAvatar +'<a href="#" class="uFilter fullname '+tweet.user+'">'+ tweet.user + '</a> <div class= "handle '+tweet.user+'"> | '+ '@' + tweet.user + '</div> <div class="time '+tweet.user+'""> | ' + tweetTime + '</div></div><p class="tweet-text">' + tweet.message +'</p></div>');
             if(displayedTweets.indexOf(tweet.message) === -1) {
               $tweet.prependTo('.stream-items');
-            } 
+            } else {
+              var curTweetIndex = displayedTweets.indexOf(tweet.message);
+              var curTweetTime = time_ago(displayedTweets[curTweetIndex+1]);
+              var updatedTweetTime = new Date() - curTweetTime;
+              console.log(updatedTweetTime);
+            }
             index -= 1;
             displayedTweets.push(tweet.message,tweet.created_at);
           }
@@ -114,7 +119,9 @@
               userFilter = true;
               var getUser = $(this).closest("li").attr('class');
               tweetUser = getUser.split(' ').pop();
-              $('li[class!= "stream-item '+tweetUser+'"]').remove(); 
+              // $('li[class!= "stream-item '+tweetUser+'"]').remove(); 
+
+              $('li:not([class ="stat"],[class!= "stream-item '+tweetUser+'"])').remove(); 
               $('.loader').text('Reload All Tweets');
             });
         }
