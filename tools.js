@@ -7,7 +7,7 @@ switch (typeof time) {
     default: time = +new Date();
 }
 var time_formats = [
-    [60, 'seconds', 1], // 60
+    [60, 's', 1], // 60
     [120, '1 minute ago', '1 minute from now'], // 60*2
     [3600, 'minutes', 60], // 60*60, 60
     [7200, '1 hour ago', '1 hour from now'], // 60*60*2
@@ -23,13 +23,13 @@ var time_formats = [
     [5806080000, 'Last century', 'Next century'], // 60*60*24*7*4*12*100*2
     [58060800000, 'centuries', 2903040000] // 60*60*24*7*4*12*100*20, 60*60*24*7*4*12*100
 ];
-var seconds = (+new Date() - time) / 1000,
-    token = 'ago', list_choice = 1;
+var seconds = Math.floor((+new Date() - time) / 1000);
+var token = 'ago';
+var list_choice = 1;
 
 
 
 if (seconds === 0) {
-    console.log(seconds);
     return 'Just now';
 }
 if (seconds < 0) {
@@ -47,3 +47,8 @@ while (format = time_formats[i++])
     }
 return time;
 }
+
+var timeString = "Tue Feb 09 2016 14:16:43";
+var t= +new Date();
+console.log(Math.floor((new Date() - Math.abs(t)) / 1000));
+console.log(time_ago());
