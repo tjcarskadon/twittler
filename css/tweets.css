@@ -196,10 +196,17 @@ button {
 }
 
 .new {
-
     height: 150px;
     top:35px;
+}
 
+.nav-header {
+    border-bottom: 1px solid #e1e8ed;
+    background-color: #0083b6;
+}
+
+.nav-title {
+   color: #fff;
 }
 
 .main-content {
