@@ -105,13 +105,17 @@ button {
     left: 50px;
 }
 
-.user-card {
-    border: 1px solid #e1e8ed;
-    background-color: #fff;
+.card {
+   border: 1px solid #e1e8ed;
+   background-color: #fff; 
+   position: relative;
+   border-radius: 5px;
+}
+
+.user {
     height: 200px;
-    position: relative;
     top: 25px;
-    border-radius: 5px;
+    
 }
 
 .user-top{
@@ -191,6 +195,13 @@ button {
     color: #66757f;
 }
 
+.new {
+
+    height: 150px;
+    top:35px;
+
+}
+
 .main-content {
     float: left;
     top: 25px;
@@ -232,10 +243,7 @@ ol .stream-items{
 .stream-item:hover{
     background-color: #f5f8fa;
 }
-    
-.content {
-    
-}
+
 
 .tweet-loader {
     text-align: center;
