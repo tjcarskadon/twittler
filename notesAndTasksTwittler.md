@@ -46,3 +46,12 @@ Create a Twitter like client using the provided data_generator.js file.  Require
 - [ ] fix resize animation for title bar
 - [ ] move all CSS out of bootstrap
 - [ ] build tweet function
+- [ ] 
+
+
+###Notes on adding Tweet Function
+- [ ] Create a text box on the left nav
+- [ ] add the user to the user list 
+- [ ] create a handler for that text box
+- [ ] Tweet text box handler pushes the tweet to the streams array and calls the print tweets function
+- [ ] 
