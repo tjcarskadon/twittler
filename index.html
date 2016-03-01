@@ -125,7 +125,7 @@
               tweetUser = getUser.split(' ').pop();
               // $('li[class!= "stream-item '+tweetUser+'"]').remove(); 
 
-              $('li:not([class ="stat"],[class!= "stream-item '+tweetUser+'"])').remove(); 
+              $('li:not([class ="stat"],[class = "stream-item '+tweetUser+'"])').remove(); 
               $('.loader').text('Reload All Tweets');
             });
         }

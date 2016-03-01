@@ -14,6 +14,7 @@ Create a Twitter like client using the provided data_generator.js file.  Require
 - [ ] Allow the user to tweet. (This is going to require you to understand a little more about data_generator.js, but you shouldn't need to modify anything.)
 
 ###Next Action:
+- [x] fix user filter bug
 - [X] fix li removal of stats on profile card
 - [x] fix long tweet wrap issue - look up word wrap for a p within a div
 - [x] change time format
@@ -54,4 +55,5 @@ Create a Twitter like client using the provided data_generator.js file.  Require
 - [ ] add the user to the user list 
 - [ ] create a handler for that text box
 - [ ] Tweet text box handler pushes the tweet to the streams array and calls the print tweets function
-- [ ] 
+- [ ] Update tweet count in user stats to a live number. 
+- [ ] create a simple user count array that counts the number of tweets from all users and then pull the current user from that array and display in the user card stats.
