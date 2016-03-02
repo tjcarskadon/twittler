@@ -203,17 +203,21 @@ button {
     padding-top: 0;
 }
 
-.nav-header {
+.nav-top {
     position: absolute;
     width:100%;
     border-bottom: 1px solid #e1e8ed;
     background-color: #0083b6;
     height:50px;
-    top: 0px;
+    top: 0;
 }
 
 .nav-title {
-   color: #fff;
+   width:75%;
+   text-align: center;
+   margin-left: 25px;
+   font-size: 17px;
+   position: relative;
 }
 
 .main-content {
