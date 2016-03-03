@@ -220,6 +220,24 @@ button {
    position: relative;
 }
 
+.tweet-box {
+    display: block;
+    box-sizing: border-box;
+    width: 95%;
+    height: 50px;
+    margin-top: 55px;
+    margin-left: 6px;
+    padding: 7px 27px 6px 12px;
+    font-size: 12px;
+    line-height: 1;
+    color: #292f33;
+    background-color: #f5f8fa;
+    border: 1px solid #e1e8ed;
+    border-radius: 2px;
+    text-align: center;
+
+}
+
 .main-content {
     float: left;
     top: 25px;
