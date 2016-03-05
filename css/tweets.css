@@ -214,10 +214,11 @@ button {
 }
 
 .nav-title {
+   display: inline-block;
    width:75%;
    text-align: left;
    margin-left: 15px;
-   margin-top:7px;
+   margin-top:5px;
    font-size: 18px;
    color: #66757f;
    position: relative;
@@ -239,6 +240,13 @@ button {
     border-radius: 2px;
     text-align: center;
 
+}
+
+.tweet-button {
+    padding: 0;
+    background-color: #fff;
+    margin: 10px 5px 0 5px;
+    float: right;
 }
 
 .main-content {
