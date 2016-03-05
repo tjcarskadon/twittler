@@ -10,7 +10,7 @@ h2 {
 }
 
 div {
-    display: block;
+    display: block; 
 }
 
 ol, ul {
@@ -198,7 +198,7 @@ button {
 }
 
 .tweet-card {
-    height: 175px;
+    height: 200px;
     top:35px;
     padding-top: 0;
 }
@@ -222,13 +222,14 @@ button {
    font-size: 18px;
    color: #66757f;
    position: relative;
+   font-weight: normal;
 }
 
 .tweet-box {
     display: block;
     box-sizing: border-box;
     width: 95%;
-    height: 80px;
+    height: 75px;
     margin-top: 40px;
     margin-left: 6px;
     padding: 7px 27px 6px 12px;

@@ -40,11 +40,18 @@ var randomMessage = function(){
 
 // generate random tweets on a random schedule
 var generateRandomTweet = function(){
-  var tweet = {};
-  tweet.user = randomElement(users);
-  tweet.message = randomMessage();
-  tweet.created_at = new Date();
-  addTweet(tweet);
+  //filter to keep logged in user from the random stream
+  //wouldn't be necessary if this was actual tweets so I hardcoded the username
+  var user = randomElement(users);
+  if(user ==='billthecat') {
+    generateRandomTweet();
+  } else {
+    var tweet = {};
+    tweet.user = user;
+    tweet.message = randomMessage();
+    tweet.created_at = new Date();
+    addTweet(tweet);
+  }
 };
 
 var userInputTweet = function(userName,message){
@@ -67,6 +74,9 @@ scheduleNextTweet();
 
 // utility function for letting students add "write a tweet" functionality
 // (note: not used by the rest of this file.)
+
+//NOTE: I didn't use this function because I watned to have the 
+//correct username and avatar show up.
 var writeTweet = function(message){
   if(!visitor){
     throw new Error('set the global visitor property!');
