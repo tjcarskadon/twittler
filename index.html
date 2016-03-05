@@ -25,7 +25,7 @@
               <div class="pull-right">
                 <div class="search">
                   <form>
-                    <input class="search-input" type="text" placeholder="Someday this will work">
+                    <input class="search-input" type="text" placeholder="search and ye shall not find">
                     <span class="search-icon"></span>
                   </form>
                 </div>
@@ -138,11 +138,13 @@
             } else {
               var curTweetIndex = displayedTweets.indexOf(tweet.message);
               var curTweetTime = time_ago(displayedTweets[curTweetIndex+1]);
-              var updatedTweetTime = new Date() - curTweetTime;
+              var curUser = displayedTweets[curTweetIndex+2];
+              $('div[class="time ' + tweet.user +'"]').text("| "+curTweetTime);
+              
             }
             
             index -= 1;
-            displayedTweets.push(tweet.message,tweet.created_at);
+            displayedTweets.push(tweet.message,tweet.created_at,tweet.user);
           }
           
           //event handler for user filtering.
