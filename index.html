@@ -70,15 +70,15 @@
         <div class ="card tweet-card">
           <div class="card-top nav-top">
             <h3 class="nav-title">
-             Tweet</h3>
+             New Tweet</h3>
           </div>
           <!-- /tweet card top -->
           <div class="tweet-container">
             <div>
-              <input class="tweet-box" type="text" placeholder="What's going on?">
+              <input id="tweet-message" class="tweet-box" type="text" placeholder="What's going on?">
             </div>
             <div class="tweet-button-container">
-              <button type="button" class="tweet-button"><img src="img/tweetbutton.png"></button>
+              <button type="button" class="tweet-button" id="tweet-btn"><img src="img/tweetbutton.png"></button>
             </div>
           </div>
           <!-- /tweet-container -->
@@ -158,6 +158,8 @@
               return '<img class="tweet-avatar" src="img/ban2000.jpeg"></img>';
             case "douglascalhoun":
               return '<img class="tweet-avatar" src="img/milo.jpeg"></img>';
+            case "billthecat":
+              return '<img class-"tweet-avatar" src="img/btc.jpg"></img>';
           }
         }
 
@@ -180,6 +182,13 @@
               printTweets();
            }
          }
+
+         //tweet function
+         $('#tweet-btn').click(function(){
+            var userMsg = $('#tweet-message').val();
+            $('#tweet-message').val('');
+
+         });
 
         //first call to load the tweets.
         printTweets();

@@ -198,7 +198,7 @@ button {
 }
 
 .tweet-card {
-    height: 150px;
+    height: 175px;
     top:35px;
     padding-top: 0;
 }
@@ -228,8 +228,8 @@ button {
     display: block;
     box-sizing: border-box;
     width: 95%;
-    height: 50px;
-    margin-top: 55px;
+    height: 80px;
+    margin-top: 40px;
     margin-left: 6px;
     padding: 7px 27px 6px 12px;
     font-size: 12px;
