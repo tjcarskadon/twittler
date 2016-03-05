@@ -159,7 +159,7 @@
             case "douglascalhoun":
               return '<img class="tweet-avatar" src="img/milo.jpeg"></img>';
             case "billthecat":
-              return '<img class-"tweet-avatar" src="img/btc.jpg"></img>';
+              return '<img class="tweet-avatar" src="img/btc.jpg"></img>';
           }
         }
 
@@ -187,7 +187,8 @@
          $('#tweet-btn').click(function(){
             var userMsg = $('#tweet-message').val();
             $('#tweet-message').val('');
-
+            userInputTweet('billthecat',userMsg);
+            printTweets();
          });
 
         //first call to load the tweets.
