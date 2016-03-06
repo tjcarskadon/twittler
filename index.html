@@ -15,7 +15,7 @@
         <div class="top-bar"> 
           <div class="top-nav">
             <div class="container">
-              <h2 class="title">Twittler</h2>
+              <h2 class="title"><a href="#" class="home-loader">Twittler</a></h2>
               <div class="nav">
                 <ul class="nav">
                   <a href="#" class="home-loader"><img src="img/homeIcon.png" class="nav-icon"></a>
@@ -117,10 +117,12 @@
         var displayedTweets = [];
         var userFilter = false;
         var tweetUser='';
+        var lastStreamLength;
 
         //function to print tweets to the window
         function printTweets() { 
           var index = streams.home.length - 1;
+          lastStreamLength = streams.home.length;
           
           while(index >= 0){
             var tweet = streams.home[index];
@@ -128,7 +130,6 @@
             var justTime = tweet.created_at.getTime();
             var tweetTime = time_ago(tweet.created_at);
             var tweetAvatar = getTweetImage(tweet.user);
-            console.log(tweet);
           
             $tweet.html('<div class="content"> <div class="tweet-header">' +tweetAvatar +'<a href="#" class="uFilter fullname '+tweet.user+'">'+ tweet.user + '</a> <div class= "handle '+tweet.user+'"> | '+ '@' + tweet.user + '</div> <div class="time '+tweet.user +' '+ justTime+'""> | ' + tweetTime + '</div></div><p class="tweet-text">' + tweet.message +'</p></div>');
           
@@ -182,8 +183,20 @@
             $(this).text("Load Tweets");
             loader();
          });
+         console.log(lastStreamLength);
+         //updates the loadlink text with new tweet count
+         function countTweets () {
+            if(lastStreamLength !== streams.home.length) {
+              var count = streams.home.length - lastStreamLength;
+              $('.loader').text("Load " + count + " New Tweets")
+            }
 
-         $('.home-loader').click(loader);
+            setTimeout(countTweets,10000);
+         }
+         $('.home-loader').click(function(){
+             $('.loader').text("Load Tweets");
+             loader();
+          });
       
          function loader(){
           if(!userFilter){
@@ -206,6 +219,7 @@
 
         //first call to load the tweets.
         printTweets();
+        countTweets();
       });
     </script>
     
