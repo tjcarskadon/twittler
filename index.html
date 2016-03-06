@@ -3,7 +3,7 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
-    <script src="lib/underscore-min.js"></script>
+    <script src="lib/underscore.js"></script>
     <script src="lib/tools.js"></script>
    <link href="css/tweets.css" rel="stylesheet">
    <link href="css/simple-sidebar.css" rel="stylesheet">
@@ -122,16 +122,19 @@
         //function to print tweets to the window
         function printTweets() { 
           var index = streams.home.length - 1;
+          // var sortedStream = _.sortBy(streams.home,'created_at')
+          // console.log(sortedStream);
           
           while(index >= 0){
             var tweet = streams.home[index];
             var $tweet = $('<li class="stream-item ' + tweet.user + '"></li>');
+            var justTime = tweet.created_at.getTime();
             var tweetTime = time_ago(tweet.created_at);
             var tweetAvatar = getTweetImage(tweet.user);
           
             userId.push(tweet.user);
           
-            $tweet.html('<div class="content"> <div class="tweet-header">' +tweetAvatar +'<a href="#" class="uFilter fullname '+tweet.user+'">'+ tweet.user + '</a> <div class= "handle '+tweet.user+'"> | '+ '@' + tweet.user + '</div> <div class="time '+tweet.user+'""> | ' + tweetTime + '</div></div><p class="tweet-text">' + tweet.message +'</p></div>');
+            $tweet.html('<div class="content"> <div class="tweet-header">' +tweetAvatar +'<a href="#" class="uFilter fullname '+tweet.user+'">'+ tweet.user + '</a> <div class= "handle '+tweet.user+'"> | '+ '@' + tweet.user + '</div> <div class="time '+tweet.user +' '+ justTime+'""> | ' + tweetTime + '</div></div><p class="tweet-text">' + tweet.message +'</p></div>');
           
             if(displayedTweets.indexOf(tweet.message) === -1) {
               $tweet.prependTo('.stream-items');
@@ -139,7 +142,8 @@
               var curTweetIndex = displayedTweets.indexOf(tweet.message);
               var curTweetTime = time_ago(displayedTweets[curTweetIndex+1]);
               var curUser = displayedTweets[curTweetIndex+2];
-              $('div[class="time ' + tweet.user +'"]').text("| "+curTweetTime);
+              var curUserTime = displayedTweets[curTweetIndex+1].getTime();
+              $('div[class="time ' + curUser +' '+ curUserTime +'"]').text("| "+curTweetTime);
               
             }
             
