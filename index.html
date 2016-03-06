@@ -60,7 +60,7 @@
               <ul class="stat-list">
                 <li class="stat">
                   <span class="stat-label">Tweets</span>
-                  <span class="stat-value">10</span>
+                  <span id="user-tweet-count" class="stat-value">0</span>
                 </li>
                  <li class="stat">
                   <span class="stat-label">Following</span>
@@ -212,6 +212,9 @@
          //tweet function
          $('#tweet-btn').click(function(){
             var userMsg = $('#tweet-message').val();
+            var userTweetCount = +$('#user-tweet-count').text();
+            userTweetCount++
+            $('#user-tweet-count').text(userTweetCount);
             $('#tweet-message').val('');
             userInputTweet('billthecat',userMsg);
             printTweets();
