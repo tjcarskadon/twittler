@@ -115,15 +115,12 @@
       $(document).ready(function(){
         var $body = $('body');
         var displayedTweets = [];
-        var userId = [];
         var userFilter = false;
         var tweetUser='';
 
         //function to print tweets to the window
         function printTweets() { 
           var index = streams.home.length - 1;
-          // var sortedStream = _.sortBy(streams.home,'created_at')
-          // console.log(sortedStream);
           
           while(index >= 0){
             var tweet = streams.home[index];
@@ -131,11 +128,11 @@
             var justTime = tweet.created_at.getTime();
             var tweetTime = time_ago(tweet.created_at);
             var tweetAvatar = getTweetImage(tweet.user);
-          
-            userId.push(tweet.user);
+            console.log(tweet);
           
             $tweet.html('<div class="content"> <div class="tweet-header">' +tweetAvatar +'<a href="#" class="uFilter fullname '+tweet.user+'">'+ tweet.user + '</a> <div class= "handle '+tweet.user+'"> | '+ '@' + tweet.user + '</div> <div class="time '+tweet.user +' '+ justTime+'""> | ' + tweetTime + '</div></div><p class="tweet-text">' + tweet.message +'</p></div>');
           
+            
             if(displayedTweets.indexOf(tweet.message) === -1) {
               $tweet.prependTo('.stream-items');
             } else {
