@@ -11,9 +11,15 @@ Create a Twitter like client using the provided data_generator.js file.  Require
 
 ####Advanced
 - [x] Show when the tweets were created in a human-friendly way (eg "10 minutes ago"). You'll want to find and use a library for this.
-- [ ] Allow the user to tweet. (This is going to require you to understand a little more about data_generator.js, but you shouldn't need to modify anything.)
+- [x] Allow the user to tweet. (This is going to require you to understand a little more about data_generator.js, but you shouldn't need to modify anything.)
 
 ###Next Action:
+- [x] filter tweets by time
+- [x] filter user's tweets to the top of the stream.
+- [x] make tweet count live
+- [x] add pending tweets count to Load Link
+- [x] update txme each time new tweets are loaded.
+- [x] build tweet function
 - [x] fix user filter bug
 - [X] fix li removal of stats on profile card
 - [x] fix long tweet wrap issue - look up word wrap for a p within a div
@@ -42,18 +48,5 @@ Create a Twitter like client using the provided data_generator.js file.  Require
 - [x] float over window with scrolling
 
 ###Back log:
-- [ ] update time each time new tweets are loaded.
-- [ ] add pending tweets count to Load Link
-- [ ] fix resize animation for title bar
-- [ ] move all CSS out of bootstrap
-- [ ] build tweet function
-- [ ] 
 
 
-###Notes on adding Tweet Function
-- [ ] Create a text box on the left nav
-- [ ] add the user to the user list 
-- [ ] create a handler for that text box
-- [ ] Tweet text box handler pushes the tweet to the streams array and calls the print tweets function
-- [ ] Update tweet count in user stats to a live number. 
-- [ ] create a simple user count array that counts the number of tweets from all users and then pull the current user from that array and display in the user card stats.

@@ -18,6 +18,15 @@
     padding-left: 250px;
 }
 
+#top-bar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
@@ -111,7 +120,7 @@
     }
 
     #top-bar-wrapper {
-        width: 100%;
+       
     }
 
     #sidebar-wrapper {
