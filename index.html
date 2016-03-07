@@ -122,16 +122,19 @@
         //function to print tweets to the window
         function printTweets() { 
           var index = streams.home.length - 1;
+          var sortedStreams = _.sortBy(streams.home,'timeInMs');
+          sortedStreams.reverse();
           lastStreamLength = streams.home.length;
+
           
           while(index >= 0){
-            var tweet = streams.home[index];
+            var tweet = sortedStreams[index];
             var $tweet = $('<li class="stream-item ' + tweet.user + '"></li>');
-            var justTime = tweet.created_at.getTime();
+            // var justTime = tweet.created_at.getTime();
             var tweetTime = time_ago(tweet.created_at);
             var tweetAvatar = getTweetImage(tweet.user);
           
-            $tweet.html('<div class="content"> <div class="tweet-header">' +tweetAvatar +'<a href="#" class="uFilter fullname '+tweet.user+'">'+ tweet.user + '</a> <div class= "handle '+tweet.user+'"> | '+ '@' + tweet.user + '</div> <div class="time '+tweet.user +' '+ justTime+'""> | ' + tweetTime + '</div></div><p class="tweet-text">' + tweet.message +'</p></div>');
+            $tweet.html('<div class="content"> <div class="tweet-header">' +tweetAvatar +'<a href="#" class="uFilter fullname '+tweet.user+'">'+ tweet.user + '</a> <div class= "handle '+tweet.user+'"> | '+ '@' + tweet.user + '</div> <div class="time '+tweet.user +' '+ tweet.timeInMs +'""> | ' + tweetTime + '</div></div><p class="tweet-text">' + tweet.message +'</p></div>');
           
             
             if(displayedTweets.indexOf(tweet.message) === -1) {
@@ -183,7 +186,6 @@
             $(this).text("Load Tweets");
             loader();
          });
-         console.log(lastStreamLength);
          //updates the loadlink text with new tweet count
          function countTweets () {
             if(lastStreamLength !== streams.home.length) {

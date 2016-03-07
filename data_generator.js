@@ -50,6 +50,7 @@ var generateRandomTweet = function(){
     tweet.user = user;
     tweet.message = randomMessage();
     tweet.created_at = new Date();
+    tweet.timeInMs = tweet.created_at.getTime();
     addTweet(tweet);
   }
 };
@@ -59,6 +60,7 @@ var userInputTweet = function(userName,message){
   tweet.user = userName;
   tweet.message = message;
   tweet.created_at= new Date();
+  tweet.timeInMs = tweet.created_at.getTime();
   addTweet(tweet);
 };
 
